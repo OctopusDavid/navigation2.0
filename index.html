@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿拉丁的工具站</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gem"></i> 阿拉丁的工具站
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="#"><i class="fas fa-tools"></i> 工具分类</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> 使用教程</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> 关于我们</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> 登录/注册</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="tool-section">
+                <div class="input-card">
+                    <div class="card-header">
+                        <label for="fileUpload" class="btn upload-btn"><i class="fas fa-upload"></i> 上传</label>
+                        <input type="file" id="fileUpload" accept=".json" style="display: none;">
+                        <span class="card-title"><i class="fas fa-magic"></i> JSON</span>
+                    </div>
+                    <textarea id="jsonInput" placeholder="在此输入JSON内容..."></textarea>
+                    <div class="button-group original-buttons">
+                        <button id="generateTxtBtn" class="btn primary-btn small-btn">生成TXT</button>
+                        <button id="generateSrtBtn" class="btn primary-btn small-btn">生成SRT</button>
+                        <button id="clearBtn" class="btn secondary-btn small-btn">清空</button>
+                        <button id="copyResultBtn" class="btn secondary-btn small-btn">复制结果</button>
+                        <button id="saveOutputTxtBtn" class="btn primary-btn small-btn">保存为TXT</button>
+                    </div>
+                    <div class="button-group original-buttons single-row-button">
+                        <button id="saveOutputSrtBtn" class="btn primary-btn small-btn">保存为SRT</button>
+                    </div>
+                </div>
+
+                <div class="output-card">
+                    <div class="card-header">
+                        <span class="card-title"><i class="fas fa-scroll"></i> 输出结果</span>
+                        <div class="controls">
+                            <label for="fileEncoding">文件编码:</label>
+                            <select id="fileEncoding">
+                                <option value="UTF-8">UTF-8</option>
+                                <option value="GBK">GBK</option>
+                            </select>
+                            <label for="lineBreak">换行符:</label>
+                            <select id="lineBreak">
+                                <option value="Windows">Win (Windows)</option>
+                                <option value="Linux">Unix (Linux)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <textarea id="outputTxt" readonly placeholder="生成结果将显示在这里..."></textarea>
+                </div>
+            </div>
+
+            <!-- 打赏按钮 和 二维码弹出区域 -->
+            <div class="reward-section-wrapper">
+                <button id="rewardBtn" class="btn main-action-btn"><i class="fas fa-hand-holding-usd"></i> 打赏</button>
+                <!-- 二维码弹出区域，现在移除 'hidden' 类，改为由 CSS opacity/visibility 控制 -->
+                <div id="qrCodePopup" class="qr-code-popup">
+                    <img id="qrCodeImage" src="images/my_qrcode.png" alt="打赏二维码" class="qr-code-img">
+                    <p class="qr-code-tip">扫码打赏，感谢支持！</p>
+                    <button id="closeQrCodePopup" class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+
+            <section class="comments-section">
+                <h3><i class="fas fa-comments"></i> 用户心声</h3>
+                <div class="comment-form">
+                    <input type="text" placeholder="昵称" required>
+                    <input type="email" placeholder="邮箱 (可选)">
+                    <input type="text" placeholder="网站 (可选)">
+                    <textarea placeholder="分享你的想法..."></textarea>
+                    <button class="btn primary-btn">提交评论</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 阿拉丁的工具站. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

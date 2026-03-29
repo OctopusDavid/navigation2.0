@@ -1,0 +1,491 @@
+:root {
+    --primary-color: #2c3e50; /* 深灰蓝，接近黑色 */
+    --secondary-color: #34495e; /* 更浅的深灰蓝 */
+    --accent-color: #f39c12; /* 阿拉丁灯的金色 */
+    --background-light: #ecf0f1; /* 浅灰色背景 */
+    --text-color: #333;
+    --border-color: #ddd;
+    --card-bg: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.navbar {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px var(--shadow-medium);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-size: 28px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 25px;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li a i {
+    margin-right: 8px;
+    color: var(--accent-color);
+}
+
+.navbar nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 0;
+}
+
+.tool-section {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.input-card, .output-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    padding: 25px;
+    flex: 1;
+    min-width: 450px; /* Minimum width for cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.card-header i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+/* Specific styling for the Upload button in the header */
+.input-card .card-header {
+    justify-content: flex-start; /* Align upload button and title to start */
+    gap: 15px; /* Space between upload button and title */
+}
+
+.upload-btn {
+    background-color: var(--secondary-color); /* Darker gray for upload */
+    color: #fff;
+    padding: 8px 15px; /* Smaller padding for a compact button */
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.upload-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.upload-btn i {
+    margin-right: 8px;
+    color: #fff; /* White icon for upload button */
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+}
+
+.output-card .card-header {
+    justify-content: space-between;
+}
+
+.output-card .card-header .controls {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+.output-card .card-header .controls label {
+    margin-left: 15px;
+    margin-right: 8px;
+}
+
+.output-card .card-header .controls select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+textarea {
+    width: 100%;
+    flex-grow: 1; /* Make textarea grow to fill available space */
+    min-height: 250px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; /* Include padding in width */
+    margin-bottom: 20px; /* Space from new button group */
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
+}
+
+/* Original button group style */
+.button-group.original-buttons {
+    display: flex;
+    gap: 10px; /* Smaller gap for compact buttons */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align to start */
+    margin-top: auto; /* Push buttons to the bottom */
+}
+/* For the "保存为SRT" button, make it a single row */
+.button-group.original-buttons.single-row-button {
+    margin-top: 10px; /* Add some space from the row above */
+}
+.button-group.original-buttons.single-row-button button {
+    margin-left: 0; /* Align to the start of its own row */
+}
+
+
+/* Small button styling */
+.btn.small-btn {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 14px; /* Smaller font size */
+    border-radius: 4px; /* Slightly smaller border-radius */
+}
+
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #e08e0b;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+
+/* Reward Section Wrapper for centering */
+.reward-section-wrapper {
+    text-align: center; /* Center the button horizontally */
+    margin: 60px 0;
+    padding-top: 30px;
+    border-top: 1px dashed var(--border-color); /* Separator line */
+    position: relative; /* For positioning the popup relative to this wrapper */
+    min-height: 100px; /* Ensure enough space for the popup to show above */
+}
+
+.main-action-btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    display: inline-flex; /* Allow text-align: center to work */
+    vertical-align: top; /* Align with top of its line for popup positioning */
+}
+
+.main-action-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* QR Code Popup Styling */
+.qr-code-popup {
+    position: absolute; /* Position relative to .reward-section-wrapper */
+    bottom: 100%; /* Position above the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%) translateY(20px); /* Adjust for centering and slight lift (initially off-screen) */
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000; /* Ensure it's on top */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.qr-code-popup.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Animate upwards to final position */
+}
+
+.qr-code-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.qr-code-tip {
+    font-size: 14px;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.qr-code-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 5px;
+    transition: color 0.2s ease;
+}
+
+.qr-code-popup .close-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Utility class for hiding elements -- NO LONGER USED FOR QR POPUP, but kept if needed elsewhere */
+/* .hidden {
+    display: none;
+} */
+
+
+/* Comments Section */
+.comments-section {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    padding: 30px;
+    margin-top: 50px; /* Adjusted space from the reward section */
+}
+
+.comments-section h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.comments-section h3 i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.comment-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.comment-form textarea {
+    grid-column: 1 / -1; /* Span all columns */
+    min-height: 100px;
+    resize: vertical;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2);
+}
+
+.comment-form .primary-btn {
+    grid-column: 1 / -1;
+    justify-self: end; /* Align button to the right */
+    width: fit-content; /* Make button only as wide as its content */
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .tool-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-card, .output-card {
+        min-width: unset; /* Remove min-width on smaller screens */
+        width: 100%; /* Take full width */
+    }
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .navbar nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar nav ul li {
+        margin: 0 10px 10px;
+    }
+    .output-card .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .output-card .card-header .controls {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .output-card .card-header .controls label {
+        margin: 10px 0 5px 0;
+    }
+    .button-group.original-buttons,
+    .button-group.original-buttons.single-row-button {
+        justify-content: center;
+    }
+    .button-group.original-buttons.single-row-button button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main-action-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+    .comments-section {
+        padding: 20px;
+    }
+    .qr-code-popup {
+        transform: translateX(-50%) translateY(-10px); /* Adjust popup position on small screens */
+    }
+    .qr-code-popup.visible {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 20px;
+    }
+    .navbar nav ul li {
+        margin: 0 5px 8px;
+    }
+    .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .button-group.original-buttons {
+        gap: 8px; /* Even smaller gap for very small screens */
+    }
+}
